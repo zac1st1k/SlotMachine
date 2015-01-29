@@ -26,6 +26,9 @@ class ViewController: UIViewController {
     var winnerPaidTitleLabel:UILabel!
     
     var resetButton:UIButton!
+    var betOneButton:UIButton!
+    var betMaxButton:UIButton!
+    var spinButton:UIButton!
     
     let kMarginForView:CGFloat = 10.0
     let kMarginForSlot:CGFloat = 2.0
@@ -53,8 +56,7 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    func setupContainerViews()
-    {
+    func setupContainerViews() {
         firstContainer = UIView(frame: CGRect(x: view.bounds.origin.x + kMarginForView, y: view.bounds.origin.y, width: view.bounds.width - (kMarginForView * 2), height: view.bounds.height * kSixth))
         firstContainer.backgroundColor = UIColor.redColor()
         view.addSubview(firstContainer)
@@ -93,7 +95,6 @@ class ViewController: UIViewController {
             }
         }
     }
-    
     func setupThirdContainer(contanerView:UIView) {
         creditsLabel = UILabel()
         creditsLabel.text = "000000"
@@ -150,14 +151,35 @@ class ViewController: UIViewController {
         winnerPaidTitleLabel.textAlignment = NSTextAlignment.Center
         contanerView.addSubview(winnerPaidTitleLabel)
     }
-    
     func setupFourthContainer (containerView: UIView) {
         resetButton = UIButton.buttonWithType(UIButtonType.System) as UIButton
         resetButton.setTitle("Reset", forState: UIControlState.Normal)
         resetButton.sizeToFit()
         resetButton.center = CGPoint(x: containerView.frame.width * kEighth, y:containerView.frame.height * kHalf)
         resetButton.addTarget(self, action: "resetButtonPressed:", forControlEvents: UIControlEvents.TouchUpInside)
-        containerView.addSubview(self.resetButton)
+        containerView.addSubview(resetButton)
+        
+        betOneButton = UIButton.buttonWithType(UIButtonType.System) as UIButton
+        betOneButton.setTitle("Bet One", forState: UIControlState.Normal)
+        betOneButton.sizeToFit()
+        betOneButton.center = CGPoint(x: containerView.frame.width * kEighth * 3, y:containerView.frame.height * kHalf)
+        betOneButton.addTarget(self, action: "betOneButtonPressed:", forControlEvents: UIControlEvents.TouchUpInside)
+        containerView.addSubview(betOneButton)
+
+        betMaxButton = UIButton.buttonWithType(UIButtonType.System) as UIButton
+        betMaxButton.setTitle("Bet Max", forState: UIControlState.Normal)
+        betMaxButton.sizeToFit()
+        betMaxButton.center = CGPoint(x: containerView.frame.width * kEighth * 5, y:containerView.frame.height * kHalf)
+        betMaxButton.addTarget(self, action: "betMaxButtonPressed:", forControlEvents: UIControlEvents.TouchUpInside)
+        containerView.addSubview(betMaxButton)
+
+        spinButton = UIButton.buttonWithType(UIButtonType.System) as UIButton
+        spinButton.setTitle("Spin", forState: UIControlState.Normal)
+        spinButton.sizeToFit()
+        spinButton.center = CGPoint(x: containerView.frame.width * kEighth * 7, y:containerView.frame.height * kHalf)
+        spinButton.addTarget(self, action: "spinButtonPressed:", forControlEvents: UIControlEvents.TouchUpInside)
+        containerView.addSubview(spinButton)
+
     }
     
     func resetButtonPressed(sender:UIButton) {
@@ -165,5 +187,15 @@ class ViewController: UIViewController {
         betLabel.text = "0000"
         winnerPaidLabel.text = "000000"
     }
+    func betOneButtonPressed(sender:UIButton) {
+        println("betOneButtonPressed")
+    }
+    func betMaxButtonPressed(sender:UIButton) {
+        println("betMaxButtonPressed")
+    }
+    func spinButtonPressed(sender:UIButton) {
+        println("spinButtonPressed")
+    }
+
 }
 
