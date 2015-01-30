@@ -61,7 +61,7 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     override func viewDidAppear(animated: Bool) {
-        showAlertWithText(header: "No More Credits", message: "Reset Game")
+//        showAlertWithText(header: "No More Credits", message: "Reset Game")
     }
     
     func setupContainerViews() {
@@ -232,10 +232,16 @@ class ViewController: UIViewController {
 
     }
     func spinButtonPressed(sender:UIButton) {
+        println("spinButtonPressed")
         removeSlotImageViews()
         slots = Factory.createSlots()
         setupSecondContainer(secondContainer)
-        println("spinButtonPressed")
+        
+        var winningMultiplier = SlotBrain.computeWinnings(slots)
+        winnings = winningMultiplier * currentBet
+        credits += winnings - currentBet
+//        currentBet = 0
+        updateMainView()
         
     }
     func removeSlotImageViews () {

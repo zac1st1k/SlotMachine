@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		11870F391A7BA5ED0065EC90 /* SlotBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11870F381A7BA5ED0065EC90 /* SlotBrain.swift */; };
 		11A3D6121A79F64C0065E792 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A3D6111A79F64C0065E792 /* AppDelegate.swift */; };
 		11A3D6141A79F64C0065E792 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A3D6131A79F64C0065E792 /* ViewController.swift */; };
 		11A3D6171A79F64C0065E792 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11A3D6151A79F64C0065E792 /* Main.storyboard */; };
@@ -28,6 +29,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		11870F381A7BA5ED0065EC90 /* SlotBrain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlotBrain.swift; sourceTree = "<group>"; };
 		11A3D60C1A79F64C0065E792 /* SlotMachine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SlotMachine.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		11A3D6101A79F64C0065E792 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		11A3D6111A79F64C0065E792 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -83,6 +85,7 @@
 			children = (
 				11A3D6111A79F64C0065E792 /* AppDelegate.swift */,
 				11A3D6131A79F64C0065E792 /* ViewController.swift */,
+				11870F381A7BA5ED0065EC90 /* SlotBrain.swift */,
 				11C95CD91A7A306200A777EC /* Factory.swift */,
 				11C95C891A7A2ED700A777EC /* Slot.swift */,
 				11A3D6151A79F64C0065E792 /* Main.storyboard */,
@@ -222,6 +225,7 @@
 				11A3D6141A79F64C0065E792 /* ViewController.swift in Sources */,
 				11C95C8A1A7A2ED700A777EC /* Slot.swift in Sources */,
 				11A3D6121A79F64C0065E792 /* AppDelegate.swift in Sources */,
+				11870F391A7BA5ED0065EC90 /* SlotBrain.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
