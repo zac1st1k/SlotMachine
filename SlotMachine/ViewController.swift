@@ -41,7 +41,7 @@ class ViewController: UIViewController {
     let kNumberOfSlots = 3
     
     var slots:[[Slot]] = []
-    var credits = 0
+    var credits = 50
     var currentBet = 0
     var winnings = 0
     
@@ -53,11 +53,15 @@ class ViewController: UIViewController {
         setupSecondContainer(secondContainer)
         setupThirdContainer(thirdContainer)
         setupFourthContainer(fourthContainer)
+        updateMainView ()
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    override func viewDidAppear(animated: Bool) {
+        showAlertWithText(header: "No More Credits", message: "Reset Game")
     }
     
     func setupContainerViews() {
@@ -192,9 +196,40 @@ class ViewController: UIViewController {
     }
     func betOneButtonPressed(sender:UIButton) {
         println("betOneButtonPressed")
+        if credits <= 0 {
+            showAlertWithText(header: "No More Credits", message: "Reset Game")
+        }
+        else {
+            if currentBet < 5 {
+                currentBet += 1
+                credits -= 1
+                updateMainView()
+            }
+            else {
+                currentBet = 1
+                credits += 4
+                updateMainView()
+            }
+        }
     }
     func betMaxButtonPressed(sender:UIButton) {
         println("betMaxButtonPressed")
+        if credits <= 0 {
+            showAlertWithText(header: "No More Credits", message: "Reset Game")
+        }
+        else {
+            if credits + currentBet < 5 {
+                credits = 0
+                currentBet = credits + currentBet
+                updateMainView()
+            }
+            else if currentBet < 5 {
+                credits = credits + currentBet - 5
+                currentBet = 5
+                updateMainView()
+            }
+        }
+
     }
     func spinButtonPressed(sender:UIButton) {
         removeSlotImageViews()
@@ -225,6 +260,11 @@ class ViewController: UIViewController {
         creditsLabel.text = "\(credits)"
         betLabel.text = "\(currentBet)"
         winnerPaidLabel.text = "\(winnings)"
+    }
+    func showAlertWithText (header: String = "Warning", message: String) {
+        var alert = UIAlertController(title: header, message: message, preferredStyle: UIAlertControllerStyle.Alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+        presentViewController(alert, animated: true, completion: nil)
     }
     
 }
