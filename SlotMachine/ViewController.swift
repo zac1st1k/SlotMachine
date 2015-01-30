@@ -40,6 +40,8 @@ class ViewController: UIViewController {
     let kNumberOfContainers = 3
     let kNumberOfSlots = 3
     
+    var slots:[[Slot]] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -49,6 +51,9 @@ class ViewController: UIViewController {
         setupThirdContainer(thirdContainer)
         setupFourthContainer(fourthContainer)
         
+        slots = Factory.createSlots()
+        println(slots)
+//        slots = Factory.createSlots(slots)
     }
     
     override func didReceiveMemoryWarning() {
