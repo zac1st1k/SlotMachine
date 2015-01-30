@@ -18,7 +18,7 @@ class Factory {
             var slotArray:[Slot] = []
             // need to be refactored
             for slotNumber in 1...kNumberOfSlots {
-                var slot = Slot(value: 0, image: UIImage(named: ""), isRed: true)
+                var slot = Factory.createSlot(slotArray)
                 slotArray.append(slot)
             }
             slots.append(slotArray)
